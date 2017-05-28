@@ -1,0 +1,1 @@
+json.array! @electives, partial: 'electives/elective', as: :elective

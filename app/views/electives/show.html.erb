@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @elective.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @elective.description %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @elective.capacity %>
+</p>
+
+<%= link_to 'Edit', edit_elective_path(@elective) %> |
+<%= link_to 'Back', electives_path %>

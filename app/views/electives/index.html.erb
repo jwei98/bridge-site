@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Electives</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Capcity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @electives.each do |elective| %>
+      <tr>
+        <td><%= elective.title %></td>
+        <td><%= elective.description %></td>
+        <td><%= elective.capacity %></td>
+        <td><%= link_to 'Show', elective %></td>
+        <td><%= link_to 'Edit', edit_elective_path(elective) %></td>
+        <td><%= link_to 'Destroy', elective, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Elective', new_elective_path %>

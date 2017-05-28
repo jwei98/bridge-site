@@ -1,0 +1,1 @@
+json.partial! "electives/elective", elective: @elective
