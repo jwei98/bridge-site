@@ -6,4 +6,10 @@ class ApplicationController < ActionController::Base
   def index
   end
   
+  def assignments
+    # loop through all users
+      # while !@userAssignedElective
+        # if assignedProperly, break
+  end
+  
 end

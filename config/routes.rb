@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :electives
   devise_for :users
-  root 'application#index'
+  resources :users
   
+  resources :electives
+  
+  
+  root 'application#index'
+  get '/users' => 'users#index'
+  get '/assignments' => 'application#assignments'
+
 end

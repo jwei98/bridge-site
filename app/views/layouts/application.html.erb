@@ -17,21 +17,11 @@
     
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
+          <li><a href="/electives">Electives</a></li>
           <% if current_user.admin? %>
-              <li><a href="/users">View Users</a></li>
-              <li class="dropdown">
-                      <a a class="dropdown-toggle" data-toggle="dropdown" href="#">Translations<span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="/translations?q=my">My Translations</a></li>
-                        <li><a href="/translations?q=all">All Translations</a></li>
-                      </ul>
-              </li>
-              <li><a href="/activities">Activities</a></li>
-              <li><a rel="nofollow" data-method="delete" href="/users/sign_out"><span class="glyphicon glyphicon-user"></span> Sign Out</a></li>
-          <% else %>
-              <li><a href="/electives">My Electives</a></li>
-              <li><a rel="nofollow" data-method="delete" href="/users/sign_out"><span class="glyphicon glyphicon-user"></span> Sign Out</a></li>
+              <li><a href="/users">Users</a></li>
           <% end %>
+          <li><a rel="nofollow" data-method="delete" href="/users/sign_out"><span class="glyphicon glyphicon-user"></span> Sign Out</a></li>
       <% else %>
           <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
