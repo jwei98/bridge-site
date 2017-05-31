@@ -1,0 +1,41 @@
+<h2> Edit User </h2>
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+    
+    <% unless @user.admin? %>
+        <div class="form-group">
+        <%= f.label "First Choice", class: "control-label" %><br>
+        <%= collection_select(:user, :firstChoice, Elective.all, :title, :title) %>
+        </div>
+        <div class="form-group">
+          <%= f.label "Second Choice", class: "control-label" %><br>
+          <%= collection_select(:user, :secondChoice, Elective.all, :title, :title) %>
+        </div>
+        <div class="form-group">
+          <%= f.label "Third Choice", class: "control-label" %><br>
+          <%= collection_select(:user, :thirdChoice, Elective.all, :title, :title) %>
+        </div>
+        <div class="form-group">
+          <%= f.label "Fourth Choice", class: "control-label" %><br>
+          <%= collection_select(:user, :fourthChoice, Elective.all, :title, :title) %>
+        </div>
+    <% end %>
+      <div class="actions">
+        <%= f.submit "Update User" %>
+      </div>
+<% end %>

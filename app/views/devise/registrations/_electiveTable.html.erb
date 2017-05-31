@@ -1,0 +1,18 @@
+<h2>Electives</h2>
+<table class="table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+        
+          <tbody>
+            <% Elective.all.each do |elective| %>
+              <tr>
+                <td><%= elective.title %></td>
+                <td><%= elective.description %></td>
+              </tr>
+            <% end %>
+          </tbody>
+</table>

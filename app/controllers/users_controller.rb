@@ -2,8 +2,6 @@ class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!, only: [:index,:create,:search,:edit,:show,:destroy]
 
-  @electives = Elective.all
-  
   # GET /users
   # GET /users.json
   def index
@@ -30,6 +28,29 @@ class UsersController < ApplicationController
   def edit
   end
 
+
+  # POST /users
+  # POST /users.json
+  def create
+    @user = User.new(user_params)
+    checkDuplicates(user_params)
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.json { render :show, status: :created, location: @user }
+      else
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
+  def checkDuplicates
+    unless [params[:firstChoice], params[:secondChoice], params[:thirdChoice], params[:fourthChoice]].uniq.count == 1
+      format.html { render :edit }
+      format.json { render json: @user.errors, status: :unprocessable_entity }
+    end
+  end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
@@ -61,7 +82,11 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
     def user_params
-      params.require(:user).permit(:email, :admin)
+      if @user.admin?
+        params.require(:user).permit(:email, :admin)
+      else
+        params.require(:user).permit(:email, :firstChoice, :secondChoice, :thirdChoice, :fourthChoice, :admin)
+      end
     end
 
 end

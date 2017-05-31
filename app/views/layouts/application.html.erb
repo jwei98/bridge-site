@@ -20,6 +20,8 @@
           <li><a href="/electives">Electives</a></li>
           <% if current_user.admin? %>
               <li><a href="/users">Users</a></li>
+          <% else %>
+              <li><%= link_to 'Profile', user_path(current_user) %></li>
           <% end %>
           <li><a rel="nofollow" data-method="delete" href="/users/sign_out"><span class="glyphicon glyphicon-user"></span> Sign Out</a></li>
       <% else %>

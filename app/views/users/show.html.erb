@@ -1,27 +1,37 @@
 <p id="notice"><%= notice %></p>
+<h1><%= @title %></h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>1st Choice</th>
+      <th>2nd Choice</th>
+      <th>3rd Choice</th>
+      <th>4th Choice</th>
+      <th>Elective #1</th>
+      <th>Elective #2</th>
+      <% if current_user.admin? %>
+        <th>Admin?</th>
+      <% end %>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-<p>
-  <strong>Sign In Count:</strong>
-  <%= @user.sign_in_count %>
-</p>
-
-<p>
-  <strong>Last Sign In:</strong>
-  <%= @user.last_sign_in_at.strftime("%m-%d-%Y @ %H:%M:%S") %>
-</p>
-<p>
-  <strong>Created:</strong>
-  <%= @user.created_at.strftime("%m-%d-%Y") %>
-</p>
-<p>
-  <strong>Admin?</strong>
-  <%= @user.admin %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <tbody>
+      <tr>
+        <td><%= @user.email %></td>
+        <td><%= @user.firstChoice %></td>
+        <td><%= @user.secondChoice %></td>
+        <td><%= @user.thirdChoice %></td>
+        <td><%= @user.fourthChoice %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+        <% if current_user.admin? %>
+          <td><%= @user.admin %></td>
+      <% end %>
+      </tr>
+  </tbody>
+</table>
+<%= link_to 'Edit', edit_user_path(@user) %>
+<% if current_user.admin? %>
+  <%= link_to 'Back', users_path %>
+<% end %>

@@ -1,4 +1,4 @@
-<h2> Register New User </h2>
+<h2> Sign Up </h2>
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -47,6 +47,6 @@
     </div>
 
       <div class="actions">
-        <%= f.submit "Create User" %>
+        <%= f.submit "Sign up" %>
       </div>
 <% end %>
