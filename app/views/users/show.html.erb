@@ -23,8 +23,8 @@
         <td><%= @user.secondChoice %></td>
         <td><%= @user.thirdChoice %></td>
         <td><%= @user.fourthChoice %></td>
-        <td><%=  %></td>
-        <td><%=  %></td>
+        <td><%= @user.firstElective %></td>
+        <td><%= @user.secondElective %></td>
         <% if current_user.admin? %>
           <td><%= @user.admin %></td>
       <% end %>

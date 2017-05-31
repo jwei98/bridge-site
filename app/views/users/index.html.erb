@@ -34,4 +34,4 @@
 
 <strong>Total Users Created (including admins): </strong><%= User.count %> <br>
 <!-- <%= link_to 'Create User', new_user_path %> <br> -->
-<%= link_to 'Compute Assignments', "/assignments" %>
+<%= link_to 'Compute Assignments', "/assignments", :data => {:confirm => 'Are you sure? Previous results will be lost...'} %>
