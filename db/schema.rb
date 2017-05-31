@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170530030622) do
+ActiveRecord::Schema.define(version: 20170531164357) do
 
   create_table "electives", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
     t.integer  "capacity"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "attendance",  default: 0
   end
 
 # Could not dump table "users" because of following NoMethodError

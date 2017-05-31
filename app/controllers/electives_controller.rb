@@ -42,7 +42,7 @@ class ElectivesController < ApplicationController
   def update
     respond_to do |format|
       if @elective.update(elective_params)
-        format.html { redirect_to @elective, notice: 'Elective was successfully updated.' }
+        format.html { redirect_to electives_url, notice: 'Elective was successfully updated.' }
         format.json { render :show, status: :ok, location: @elective }
       else
         format.html { render :edit }
