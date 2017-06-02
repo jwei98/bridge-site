@@ -28,7 +28,7 @@ class ElectivesController < ApplicationController
 
     respond_to do |format|
       if @elective.save
-        format.html { redirect_to @elective, notice: 'Elective was successfully created.' }
+        format.html { redirect_to electives_url, notice: 'Elective was successfully created.' }
         format.json { render :show, status: :created, location: @elective }
       else
         format.html { render :new }
